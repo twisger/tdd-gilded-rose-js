@@ -1,0 +1,29 @@
+{
+  "name": "ecmascript-tutorial",
+  "version": "1.0.0",
+  "description": "A tutorial for ECMAScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint __tests__"
+  },
+  "keywords": [
+    "ECMAScript"
+  ],
+  "author": "Liu Xia",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@types/jest": "^24.0.11",
+    "acorn": "^6.1.1",
+    "babel-jest": "^24.5.0",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.4.1",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "jest": "^24.5.0"
+  }
+}
