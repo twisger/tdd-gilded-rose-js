@@ -11,6 +11,10 @@ export default class Good {
     } else {
       price = this.Quality - (day - this.SellIn) * 2 - this.SellIn;
     }
+    return this.getFinalPrice(price);
+  }
+
+  getFinalPrice(price) {
     if (price < 0) {
       return 0;
     }
@@ -18,5 +22,11 @@ export default class Good {
       return 50;
     }
     return price;
+  }
+}
+
+export class AgedBrie extends Good {
+  getPrice(day) {
+    return super.getFinalPrice(this.Quality + day);
   }
 }
