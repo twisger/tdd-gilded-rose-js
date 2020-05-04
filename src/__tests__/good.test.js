@@ -1,4 +1,4 @@
-import Good, { AgedBrie } from '../good';
+import Good, { AgedBrie, Sulfuras } from '../good';
 
 test('should a good can init', () => {
   expect(new Good({ SellIn: 10, Quality: 10 })).toBeTruthy();
@@ -28,4 +28,10 @@ test('should Aged Brie increase 1 every day', () => {
   const agedBrie = new AgedBrie({ SellIn: 10, Quality: 10 });
   expect(agedBrie.getPrice(5)).toBe(15);
   expect(agedBrie.getPrice(50)).toBe(50);
+});
+
+test('should Sulfuras price not change', () => {
+  const sulfuras = new Sulfuras({ SellIn: 0, Quality: 10 });
+  expect(sulfuras.getPrice(10)).toBe(10);
+  expect(sulfuras.getPrice(20)).toBe(10);
 });

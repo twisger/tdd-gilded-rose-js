@@ -30,3 +30,9 @@ export class AgedBrie extends Good {
     return super.getFinalPrice(this.Quality + day);
   }
 }
+
+export class Sulfuras extends Good {
+  getPrice() {
+    return super.getFinalPrice(this.Quality);
+  }
+}
