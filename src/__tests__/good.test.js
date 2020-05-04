@@ -1,4 +1,4 @@
-import Good, { AgedBrie, Sulfuras } from '../good';
+import Good, { AgedBrie, Sulfuras, BackstagePass } from '../good';
 
 test('should a good can init', () => {
   expect(new Good({ SellIn: 10, Quality: 10 })).toBeTruthy();
@@ -34,4 +34,24 @@ test('should Sulfuras price not change', () => {
   const sulfuras = new Sulfuras({ SellIn: 0, Quality: 10 });
   expect(sulfuras.getPrice(10)).toBe(10);
   expect(sulfuras.getPrice(20)).toBe(10);
+});
+
+describe('Backstage pass', () => {
+  const showDay = 20;
+  test('should price increase 1 before show day', () => {
+    const good = new BackstagePass({ SellIn: 10, Quality: 10 });
+    expect(good.getPrice(5, showDay)).toBe(15);
+  });
+  test('should price increase 2 before show day 10', () => {
+    const good = new BackstagePass({ SellIn: 10, Quality: 10 });
+    expect(good.getPrice(12, showDay)).toBe(24);
+  });
+  test('should price increase 3 before show day 5', () => {
+    const good = new BackstagePass({ SellIn: 10, Quality: 10 });
+    expect(good.getPrice(17, showDay)).toBe(36);
+  });
+  test('should price be 0 after show day', () => {
+    const good = new BackstagePass({ SellIn: 10, Quality: 10 });
+    expect(good.getPrice(21, showDay)).toBe(0);
+  });
 });

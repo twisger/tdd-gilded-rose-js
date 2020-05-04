@@ -36,3 +36,25 @@ export class Sulfuras extends Good {
     return super.getFinalPrice(this.Quality);
   }
 }
+
+export class BackstagePass extends Good {
+  getPrice(day, showDay) {
+    if (day <= showDay) {
+      const onePointDay = day <= (showDay - 10) ? day : showDay - 10;
+
+      let twoPointDay = 0;
+      if (day > showDay - 10 && day <= showDay - 5) {
+        twoPointDay = day - (showDay - 10);
+      }
+      if (day > showDay - 5) {
+        twoPointDay = 5;
+      }
+
+      const threePointDay = day > (showDay - 5) ? (day - (showDay - 5)) : 0;
+      return super.getFinalPrice(this.Quality + onePointDay + twoPointDay * 2 + threePointDay * 3);
+    }
+    if (day > showDay) {
+      return super.getFinalPrice(0);
+    }
+  }
+}
